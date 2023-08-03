@@ -1,5 +1,6 @@
 package com.example.obrestdatajpa.entities;
 
+import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -9,10 +10,12 @@ import java.time.LocalDate;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("Ejemplo de anotacion para Swagger")
     private Long id;
     private String title;
     private String author;
     private Integer pages;
+    @ApiModelProperty("Ejemplo de anotacion para Swagger")
     private Double price;
     private LocalDate releaseDate;
     private Boolean online;

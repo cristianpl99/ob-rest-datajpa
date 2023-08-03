@@ -2,6 +2,8 @@ package com.example.obrestdatajpa.controller;
 
 import com.example.obrestdatajpa.entities.Book;
 import com.example.obrestdatajpa.repository.BookRepository;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -30,7 +32,8 @@ public class BookController {
 
     // Buscar un solo libro
     @GetMapping("/api/books/{id}")
-    public ResponseEntity<Book> findOneById(@PathVariable Long id)
+    @ApiOperation("busca un libro") // notacion de springfox para agregar documentacion a swagger
+    public ResponseEntity<Book> findOneById(@ApiParam("Ejemplo de anotacion de Swagger") @PathVariable Long id)
     {
         Optional<Book> bookOptional = repository.findById(id); //evita valores null
         //opcion 1
